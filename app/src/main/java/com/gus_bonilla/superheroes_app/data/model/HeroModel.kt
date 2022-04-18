@@ -4,4 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class HeroModel (@SerializedName("id") val heroId:Int,
                       @SerializedName("name") val heroName:String,
-                      @SerializedName("description") val heroDescription:String)
+                      @SerializedName("description") val heroDescription:String,
+                      @SerializedName("thumbnail") val heroImage:ImageModel)
