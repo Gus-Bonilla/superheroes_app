@@ -1,6 +1,7 @@
 package com.gus_bonilla.superheroes_app.ui.view
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,12 @@ class HeroesAdapter(val heroes:List<HeroModel>, val context:Context):
     override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         val hero = heroes[position]
         var imageUrl = "${hero.heroImage.heroImagePath}/standard_medium.${hero.heroImage.heroImageExt}"
+
+        if (position == this.itemCount - 11) {
+            // load more data here.
+            Log.d("TAG", "Faltan 10 elementos para llegar a fin")
+
+        }
 
         imageUrl = "https" + imageUrl.substring(4)
         holder.heroName.text = hero.heroName

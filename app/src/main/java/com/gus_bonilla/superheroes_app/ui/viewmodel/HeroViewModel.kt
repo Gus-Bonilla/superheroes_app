@@ -33,6 +33,17 @@ class HeroViewModel : ViewModel() {
         }
     }
 
+    fun callNewHeroes() {
+        viewModelScope.launch {
+            isLoading.postValue(true)
+            val result:List<HeroModel>? = getHeroesUseCase()
+
+            if(!result.isNullOrEmpty()){
+                heroesList.postValue(result!!)
+            }
+        }
+    }
+
     fun randomHero(){
         isLoading.postValue(true)
 

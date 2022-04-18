@@ -1,20 +1,17 @@
 package com.gus_bonilla.superheroes_app.ui.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.gus_bonilla.superheroes_app.R
-import com.gus_bonilla.superheroes_app.data.model.HeroModel
-import com.gus_bonilla.superheroes_app.data.model.HeroProvider
 import com.gus_bonilla.superheroes_app.databinding.ActivityMainBinding
 import com.gus_bonilla.superheroes_app.ui.viewmodel.HeroViewModel
-import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
@@ -35,6 +32,15 @@ class MainActivity : AppCompatActivity() {
         heroViewModel.heroesList.observe(this, Observer {
             binding.recyclerView.layoutManager = LinearLayoutManager(this)
             binding.recyclerView.adapter = HeroesAdapter(it, this@MainActivity)
+            /*binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    if (!recyclerView.canScrollVertically(1)) {
+                        //Toast.makeText(this@YourActivity, "Last", Toast.LENGTH_LONG).show()
+                        Log.d("TAG", "FIn :)")
+                    }
+                }
+            })*/
         })
 
         heroViewModel.isLoading.observe(this, Observer {
