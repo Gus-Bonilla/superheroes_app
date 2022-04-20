@@ -59,6 +59,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // CollectionsUtils
+    implementation 'org.apache.commons:commons-collections4:4.4'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
